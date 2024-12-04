@@ -21,7 +21,7 @@ router.post("/create",upload.single("image"),async (req, res)=>{
 
         res.redirect("/owners/admin");
     } catch (err) {
-        console.log(err.message);
+        // console.log(err.message);
         res.status(500).send("Internal Server Error");
     }
 });

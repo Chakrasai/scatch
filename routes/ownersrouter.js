@@ -42,7 +42,7 @@ router.post('/login',async (req,res)=>{
 
     bcrypt.compare(password, owner.password, function (err, result) {
         if (err) {
-            console.error("Error comparing passwords:", err);
+            // console.error("Error comparing passwords:", err);
             return res.status(500).send("Internal Server Error");
         }
         if (result) {

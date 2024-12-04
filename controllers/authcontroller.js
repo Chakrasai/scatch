@@ -8,7 +8,7 @@ module.exports.registeruser = async (req, res) => {
         let { fullname, email, password } = req.body;
         let user = await usermodel.findOne({ email: email });
         if (user) {
-            req.flash("error", "User already exists");
+            // req.flash("error", "User already exists");
             return res.redirect("/");
         } 
         else {
