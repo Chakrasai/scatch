@@ -30,10 +30,25 @@ router.get("/shop", isloggin, async (req, res) => {
 //         res.redirect("/");
 //     }
 // });
-router.get("/addtocart/:id", isloggin, async (req, res) => {
-    let product = await productmodel.findbyid(req.params.id);
+
+
+
+router.get("/cart", isloggin, async (req, res) => {
+    let user = await usermodel.findOne({ email: req.user.email }).populate("cart");
+    console.log(user.cart)
+    res.render("cart", { user });
+});
+
+router.get("/addtocart/:productid", isloggin, async (req, res) => {
     let user = await usermodel.findOne({ email: req.user.email });
-    
+    console.log(user)
+    if (user.cart.includes(req.params.productid)) {
+        req.flash("info", "Product already in cart");
+        return res.redirect("/shop");
+    }
+    user.cart.push(req.params.productid);
+    await user.save();
+    res.redirect("/shop");
 })
 
 
