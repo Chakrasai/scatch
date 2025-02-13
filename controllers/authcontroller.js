@@ -24,7 +24,7 @@ module.exports.registeruser = async (req, res) => {
                         });
                         let emailtoken = generateToken(createduser);
                         res.cookie("token", emailtoken);
-                        res.send("User Registered");
+                        res.redirect('/');
                     }
                 });
             });
