@@ -23,6 +23,10 @@ app.use(
         secret: process.env.SESSION_SECRET || "scatch",
         resave: false,
         saveUninitialized: true,
+        store: MongoStore.create({
+            mongoUrl: process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/scatch",
+            collectionName: "sessions"
+        })
     })
 );
 
