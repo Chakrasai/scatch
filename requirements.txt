@@ -1,0 +1,5 @@
+bcrypt
+jsonwebtoken
+express
+mongoose
+cookie-parser
