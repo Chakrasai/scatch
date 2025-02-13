@@ -11,7 +11,6 @@ try {
 	req.user = user;
 	next();
 } catch (err) {
-	req.flash("error", "something went wrong.");
 	res.redirect("/");
 }
-}
+};

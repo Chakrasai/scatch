@@ -9,9 +9,8 @@ const usersrouter = require("./routes/usersrouter");
 const productsrouter = require("./routes/productsrouter");
 const indexRouter = require("./routes/index");
 const expressSession = require("express-session");
-const flash = require("connect-flash");
 require("dotenv").config();
-
+const MongoStore = require("connect-mongo");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -26,7 +25,6 @@ app.use(
         saveUninitialized: true,
     })
 );
-app.use(flash());
 
 // let products = productmodel.find();
 // console.log(products);

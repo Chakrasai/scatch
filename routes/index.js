@@ -7,7 +7,7 @@ const usermodel = require("../models/usermodel");
 
 router.get("/", async (req, res) => {
     // let error = req.flash("error");
-    res.render('index', { error, isloggin:false });
+    res.render('index', { isloggin:false });
 });
 
 router.get("/shop", isloggin, async (req, res) => {
